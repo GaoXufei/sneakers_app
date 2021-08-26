@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sneakers_app/common/entities/entities.dart';
 
 import 'index.dart';
 
@@ -10,6 +12,7 @@ class HomeController extends GetxController {
   final state = HomeState();
 
   /// 成员变量
+  final RxList<ShoeEntity> shoeList = <ShoeEntity>[].obs;
 
   /// 事件
 
@@ -39,6 +42,32 @@ class HomeController extends GetxController {
   void onReady() {
     super.onReady();
     // async 拉取数据
+    shoeList.addAll([
+      ShoeEntity(
+        name: "Nike Air Jordan 1 Retro High",
+        desc: "Familiar but always fresh, the iconic Air Jordan",
+        price: 184,
+        color: Colors.blueGrey,
+        brand: "Nike",
+        imgPath: "images/shoe/1.png",
+      ),
+      ShoeEntity(
+        name: "Nike Air Jordan 1 Retro High",
+        desc: "Familiar but always fresh, the iconic Air Jordan",
+        price: 123,
+        color: Colors.blueGrey,
+        brand: "Nike",
+        imgPath: "images/shoe/2.png",
+      ),
+      ShoeEntity(
+        name: "Nike Air Jordan 1 Retro High",
+        desc: "Familiar but always fresh, the iconic Air Jordan 1",
+        price: 321,
+        color: Colors.blueGrey,
+        brand: "Nike",
+        imgPath: "images/shoe/3.png",
+      ),
+    ]);
   }
 
   ///在 [onDelete] 方法之前调用。 [onClose] 可能用于
