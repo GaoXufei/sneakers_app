@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 
 import '../controller.dart';
 
+import 'package:sneakers_app/pages/home/widgets/widgets.dart';
+
 class BodyWidget extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     return Obx(
       () => ListView(
+        physics: BouncingScrollPhysics(),
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -31,68 +32,47 @@ class BodyWidget extends GetView<HomeController> {
               ],
             ),
           ),
-          ...controller.shoeList.map(
-            (data) => Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 10.0),
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(10, 10),
-                    blurRadius: 10.0,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
-                ],
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
+          Container(
+            height: 350.0,
+            child: ListView.builder(
+              padding: const EdgeInsets.only(left: 16.0),
+              itemCount: controller.shoeList.length,
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              // ! 鞋 item
+              itemBuilder: (context, index) => BodyCategoryItemWidget(
+                itemInfo: controller.shoeList[index],
               ),
-              child: Row(
-                children: [
-                  // ! 图片
-                  Image.asset(
-                    "assets/${data.imgPath}",
-                    width: 100,
-                    height: 80,
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("JUST FOR YOU"),
+                Text(
+                  "VIEW ALL",
+                  style: TextStyle(
+                    color: Colors.green,
                   ),
-                  // ! 标题 品牌
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: size.width * .4,
-                          child: Text(
-                            "${data.name}",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Text(
-                          "${data.brand}",
-                          style: TextStyle(
-                            color: Colors.grey[500],
-                            height: 1.5,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  // ! 价格
-                  Text(
-                    "\$${data.price.toInt()}",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                ),
+              ],
+            ),
+          ),
+          ...controller.shoeList.map(
+            (data) => BodyNormalShopItemWidget(
+              itemInfo: data,
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Text(
+              'MORE',
+              style: TextStyle(
+                color: Colors.grey[400],
               ),
             ),
           ),

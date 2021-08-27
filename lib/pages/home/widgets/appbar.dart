@@ -6,7 +6,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   AppBar build(BuildContext context) {
     return AppBar(
       leading: Icon(Icons.menu),
-      title: Text('TITLE'),
+      title: Text('shoe store'),
       centerTitle: true,
       elevation: 0.0,
     );
