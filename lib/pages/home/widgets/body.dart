@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sneakers_app/pages/shoe_details/index.dart';
 
 import '../controller.dart';
 
@@ -19,7 +20,7 @@ class BodyWidget extends GetView<HomeController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Categories",
+                  "New Collection",
                   style: TextStyle(
                     fontSize: 32.0,
                     fontWeight: FontWeight.w500,
@@ -40,8 +41,19 @@ class BodyWidget extends GetView<HomeController> {
               scrollDirection: Axis.horizontal,
               physics: BouncingScrollPhysics(),
               // ! 鞋 item
-              itemBuilder: (context, index) => BodyCategoryItemWidget(
-                itemInfo: controller.shoeList[index],
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  Get.to(
+                    ShoeDetailsPage(shoeEntity: controller.shoeList[index]),
+                    binding: ShoeDetailsBinding(),
+                    arguments: [
+                      {"id": index},
+                    ],
+                  );
+                },
+                child: BodyCategoryItemWidget(
+                  itemInfo: controller.shoeList[index],
+                ),
               ),
             ),
           ),

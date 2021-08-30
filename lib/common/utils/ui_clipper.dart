@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class BodyClipper extends CustomClipper<Path> {
+class UiClipper extends CustomClipper<Path> {
   final double cornerSize;
   final double diagonalHeight;
 
-  BodyClipper({required this.cornerSize, required this.diagonalHeight});
+  UiClipper({required this.cornerSize, required this.diagonalHeight});
 
   @override
   Path getClip(Size size) {

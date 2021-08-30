@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sneakers_app/common/entities/entities.dart';
-import 'package:sneakers_app/pages/home/widgets/widgets.dart';
+import 'package:sneakers_app/common/utils/utils.dart';
 import 'dart:math' as math;
 
 class BodyCategoryItemWidget extends StatelessWidget {
@@ -20,7 +20,7 @@ class BodyCategoryItemWidget extends StatelessWidget {
       child: Stack(
         children: [
           ClipPath(
-            clipper: BodyClipper(cornerSize: 25, diagonalHeight: 100),
+            clipper: UiClipper(cornerSize: 25, diagonalHeight: 100),
             child: Container(
               width: 230,
               color: itemInfo.color,
@@ -84,7 +84,7 @@ class BodyCategoryItemWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 0,
+            right: 20,
             top: 20,
             child: Transform.rotate(
               angle: -math.pi / 7,
