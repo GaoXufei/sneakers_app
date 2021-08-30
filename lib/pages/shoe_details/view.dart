@@ -104,10 +104,34 @@ class ShoeDetailsPage extends GetView<ShoeDetailsController> {
                           Text(
                             "${shoeEntity.desc}",
                             style: TextStyle(
-                              fontSize: 18,
                               color: Colors.grey[400],
                             ),
-                          )
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            "COLOR OPTIONS",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(height: 16),
+                          // ! 颜色
+                          Row(
+                            children: [
+                              Container(
+                                width: 16,
+                                height: 16,
+                                margin: const EdgeInsets.only(right: 16),
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(50),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
