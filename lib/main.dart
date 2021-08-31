@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           // 字体
           // textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
+          // textTheme: GoogleFonts.hindTextTheme(),
         ),
         // * 日志
         enableLog: true,
