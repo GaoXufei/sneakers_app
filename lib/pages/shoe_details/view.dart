@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:sneakers_app/common/entities/entities.dart';
 import 'package:sneakers_app/common/utils/ui_clipper.dart';
+import 'dart:math' as math;
 
 import 'index.dart';
 import 'widgets/widgets.dart';
@@ -21,11 +22,17 @@ class ShoeDetailsPage extends GetView<ShoeDetailsController> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Text("New Collection"),
+        title: Text(
+          "New Collection",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         leading: IconButton(
           onPressed: Get.back,
           icon: Icon(
             Icons.arrow_back_ios,
+            color: Colors.white,
           ),
         ),
       ),
@@ -37,10 +44,14 @@ class ShoeDetailsPage extends GetView<ShoeDetailsController> {
             Positioned(
               bottom: 0,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.8,
+                height: MediaQuery.of(context).size.height * 0.75,
                 width: MediaQuery.of(context).size.width,
                 child: ClipPath(
-                  clipper: UiClipper(cornerSize: 50, diagonalHeight: 180),
+                  clipper: UiClipper(
+                    cornerSize: 50,
+                    diagonalHeight: 180,
+                    roundedBottom: false,
+                  ),
                   child: Container(
                     color: Colors.white,
                     child: Padding(
@@ -120,8 +131,8 @@ class ShoeDetailsPage extends GetView<ShoeDetailsController> {
                           Row(
                             children: [
                               Container(
-                                width: 16,
-                                height: 16,
+                                width: 20,
+                                height: 20,
                                 margin: const EdgeInsets.only(right: 16),
                                 decoration: BoxDecoration(
                                   color: Colors.red,
@@ -135,6 +146,90 @@ class ShoeDetailsPage extends GetView<ShoeDetailsController> {
                         ],
                       ),
                     ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40.0),
+              child: Hero(
+                tag: "hero${shoeEntity.imgPath}",
+                child: Transform.rotate(
+                  angle: -math.pi / 7,
+                  child: Image.asset(
+                    "assets/${shoeEntity.imgPath}",
+                    width: MediaQuery.of(context).size.width * .9,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      extendBody: true,
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 10.0,
+            ),
+          ],
+        ),
+        height: 90.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // ! price
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "PRICE",
+                  style: TextStyle(
+                    color: Colors.grey[300],
+                  ),
+                ),
+                Text(
+                  "\$${shoeEntity.price.toInt()}",
+                  style: TextStyle(
+                    fontSize: 32,
+                  ),
+                ),
+              ],
+            ),
+            // ! add cart
+            Container(
+              child: TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.greenAccent,
+                  ),
+                  fixedSize: MaterialStateProperty.all(Size.fromHeight(60)),
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(horizontal: 50),
+                  ),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                ),
+                child: Text(
+                  "ADD CART",
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
                 ),
               ),

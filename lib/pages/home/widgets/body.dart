@@ -82,7 +82,7 @@ class BodyWidget extends GetView<HomeController> {
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(vertical: 16),
             child: Text(
-              'MORE',
+              '- MORE -',
               style: TextStyle(
                 color: Colors.grey[400],
               ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sneakers_app/common/routes/app_pages.dart';
 
 import 'common/utils/utils.dart';
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           // 页面背景颜色
           scaffoldBackgroundColor: Colors.white,
+          // 字体
+          // textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
         ),
         // * 日志
         enableLog: true,

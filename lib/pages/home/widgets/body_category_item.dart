@@ -86,11 +86,14 @@ class BodyCategoryItemWidget extends StatelessWidget {
           Positioned(
             right: 20,
             top: 20,
-            child: Transform.rotate(
-              angle: -math.pi / 7,
-              child: Image.asset(
-                "assets/${itemInfo.imgPath}",
-                width: 200,
+            child: Hero(
+              tag: "hero${itemInfo.imgPath}",
+              child: Transform.rotate(
+                angle: -math.pi / 7,
+                child: Image.asset(
+                  "assets/${itemInfo.imgPath}",
+                  width: 200,
+                ),
               ),
             ),
           )
