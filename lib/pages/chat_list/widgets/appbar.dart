@@ -5,21 +5,23 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   AppBar build(BuildContext context) {
     return AppBar(
       elevation: 0.0,
+      leading: IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.search_rounded),
+      ),
+      centerTitle: true,
       title: Text(
-        "Chat",
+        "Messages",
         style: TextStyle(
-          fontSize: 36,
+          // fontSize: 36,
           fontWeight: FontWeight.bold,
         ),
       ),
       actions: [
-        IconButton(
-          icon: Icon(
-            Icons.filter_none_outlined,
-            color: Colors.green[400],
-          ),
-          onPressed: () {},
-        ),
+        CircleAvatar(),
+        SizedBox(
+          width: 16,
+        )
       ],
     );
   }

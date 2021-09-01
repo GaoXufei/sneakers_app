@@ -15,6 +15,7 @@ class ButtonNavigationBarWidget extends GetView<ApplicationController> {
         currentIndex: controller.state.page,
         showUnselectedLabels: false,
         showSelectedLabels: false,
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
