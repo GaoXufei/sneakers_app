@@ -1,29 +1,17 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
 
-class ApplicationController extends GetxController {
-  ApplicationController();
+class ChatListController extends GetxController {
+  ChatListController();
 
   /// 响应式成员变量
 
-  final state = ApplicationState();
+  final state = ChatListState();
 
   /// 成员变量
-  late final PageController pageController;
 
   /// 事件
-
-  // ! 点击底部导航栏进行切换
-  void handleTapNavigation(int index) {
-    pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 200),
-      curve: Curves.ease,
-    );
-    state.page = index;
-  }
 
   // tap
   void handleTap(int index) {
@@ -42,10 +30,6 @@ class ApplicationController extends GetxController {
     super.onInit();
     // new 对象
     // 初始静态数据
-    // ! 初始化pageController
-    pageController = new PageController(
-      initialPage: state.page,
-    );
   }
 
   ///在 onInit() 之后调用 1 帧。这是进入的理想场所

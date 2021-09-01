@@ -4,12 +4,16 @@ import 'package:get/get.dart';
 import 'index.dart';
 import 'widgets/widgets.dart';
 
-class ApplicationPage extends GetView<ApplicationController> {
+class ChatDetailsPage extends GetView<ChatDetailsController> {
+  // 内容页
+  Widget _buildView() {
+    return HelloWidget();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BodyWidget(),
-      bottomNavigationBar: ButtonNavigationBarWidget(),
+      body: _buildView(),
     );
   }
 }

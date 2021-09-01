@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sneakers_app/pages/application/index.dart';
+import 'package:sneakers_app/pages/chat_list/index.dart';
 import 'package:sneakers_app/pages/home/index.dart';
 
 class BodyWidget extends GetView<ApplicationController> {
@@ -10,6 +11,7 @@ class BodyWidget extends GetView<ApplicationController> {
       scrollDirection: Axis.horizontal,
       children: [
         HomePage(),
+        ChatListPage(),
       ],
       physics: NeverScrollableScrollPhysics(),
       controller: controller.pageController,
