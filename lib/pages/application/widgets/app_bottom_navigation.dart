@@ -35,15 +35,36 @@ class ButtonNavigationBarWidget extends GetView<ApplicationController> {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(IconFont.home, size: 20),
+              icon: SvgPicture.asset(
+                "assets/svg/home_normal.svg",
+                width: 20,
+              ),
+              activeIcon: SvgPicture.asset(
+                "assets/svg/home.svg",
+                width: 20,
+              ),
               label: 'HOME',
             ),
             BottomNavigationBarItem(
-              icon: Icon(IconFont.chat),
-              label: 'CHAT',
+              icon: SvgPicture.asset(
+                "assets/svg/message_normal.svg",
+                width: 20,
+              ),
+              activeIcon: SvgPicture.asset(
+                "assets/svg/message.svg",
+                width: 20,
+              ),
+              label: 'MESSAGE',
             ),
             BottomNavigationBarItem(
-              icon: Icon(IconFont.search),
+              icon: SvgPicture.asset(
+                "assets/svg/list_normal.svg",
+                width: 20,
+              ),
+              activeIcon: SvgPicture.asset(
+                "assets/svg/list.svg",
+                width: 20,
+              ),
               label: 'MENU BOOK',
             ),
             BottomNavigationBarItem(

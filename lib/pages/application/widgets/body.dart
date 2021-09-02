@@ -14,6 +14,7 @@ class BodyWidget extends GetView<ApplicationController> {
         ChatListPage(),
       ],
       physics: NeverScrollableScrollPhysics(),
+      // physics: BouncingScrollPhysics(),
       controller: controller.pageController,
     );
   }
