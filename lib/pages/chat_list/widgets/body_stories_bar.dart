@@ -30,7 +30,7 @@ class BodyStoriesBarWidget extends GetView<ChatListController> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               separatorBuilder: (_, index) {
-                return SizedBox(width: 10);
+                return SizedBox(width: 16);
               },
               itemBuilder: (BuildContext context, int index) {
                 return Column(
@@ -38,7 +38,9 @@ class BodyStoriesBarWidget extends GetView<ChatListController> {
                     Container(
                       width: 66,
                       height: 66,
-                      child: CircleAvatar(),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[200],
+                      ),
                     ),
                     SizedBox(height: 16),
                     Text("MIKE")
